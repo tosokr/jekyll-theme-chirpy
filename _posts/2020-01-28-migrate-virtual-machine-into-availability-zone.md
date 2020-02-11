@@ -1,7 +1,7 @@
 ---
 title: Migrate virtual machine into availability zone
 date: 2020-01-28 22:15:00 +0000
-categories: [Virtual Machines, IaaS]
+categories: [Virtual Machines]
 tags: [Scripts]
 ---
 
@@ -22,5 +22,5 @@ The script workflow:
 After you verify that everything is working, delete the old disks and the snapshots. Otherwise, you will pay to Microsoft for the provisioned space (if you are using SSD disks, this can be a significant sum).
 
 ```shell
-{% remote_markdown https://raw.githubusercontent.com/tosokr/MyAzure/master/VirtualMachines/changeAvailabilityZoneOfVM.ps1 %}
+{% remote_markdown https://raw.githubusercontent.com/tosokr/Azure/master/VirtualMachines/changeAvailabilityZoneOfVM.ps1 %}
 ```

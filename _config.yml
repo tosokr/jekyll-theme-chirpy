@@ -8,12 +8,12 @@
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 #--------------------------
 
-title: AStef.me                          # the main title
+title: Aleksandar Stefanov                          # the main title
 
-tagline: My tech repository.  # it will display as the sub-title
+tagline: My Azure repository  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.
+  Azure scripts solutions architecture Aleksandar Stefanov
 
 # Replace with your domain, e.g. 'https://username.github.io'
 url: 'https://tosokr.github.io'

@@ -8,4 +8,8 @@ title: About
 # MIT License
 ---
 
-> **Note**: Add Markdown syntax content to file `tabs/about.md` and it will show up on this page.
+Aleksandar is a technology expert with more than 15 years’ experience in the IT industry. During that time,he gained hands-on experience in architecting and deploying solutions for different size of organisations, across many industries and sectors. 
+
+With his strong technical skills as well as excellent interpersonal skills, he can develop and coordinate cloud architecture between IT and business operations, translate the business requirements into technical solutions and help clients in their successful cloud journey.  In a team environment, he is both a natural team leader and a productive team member. 
+
+He holds B.Sc in Computer Science, Azure Solutions Architect Expert certification from Microsoft and Professional Cloud Architect certification from Google.
