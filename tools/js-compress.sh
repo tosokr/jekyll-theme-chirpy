@@ -4,6 +4,10 @@
 #
 #
 # Requirement:
+<<<<<<< HEAD
+=======
+#   - wget
+>>>>>>> v2.0
 #   - JRE
 #   - yuicompressor › https://github.com/yui/yuicompressor
 #
@@ -23,12 +27,29 @@ set -eu
 
 PROJ_HOME=$(dirname $(dirname $(realpath "$0")))
 
+<<<<<<< HEAD
+=======
+YUICOMPRESSOR_SRC=https://github.com/yui/yuicompressor/releases/download/v2.4.8/yuicompressor-2.4.8.jar
+>>>>>>> v2.0
 YUICOMPRESSOR=${PROJ_HOME}/tools/package/yuicompressor-2.4.8.jar
 JS_ROOT=${PROJ_HOME}/assets/js/
 JS_SRC=${JS_ROOT}_src    # JS source files
 JS_DEST=${JS_ROOT}dist   # Compressed output directory
 PREFIX_LEN=${#JS_ROOT}   # To beautify the log
 
+<<<<<<< HEAD
+=======
+
+function init() {
+  if [[ ! -f $YUICOMPRESSOR ]]; then
+    if [[ ! -d "${PROJ_HOME}/tools/package/" ]]; then
+      mkdir -p "${PROJ_HOME}/tools/package/"
+    fi
+    wget "$YUICOMPRESSOR_SRC" -P "${PROJ_HOME}/tools/package/" -q
+  fi
+}
+
+>>>>>>> v2.0
 function compress() {
   # $1 is the source dir
   # $2 is the destination dir
@@ -58,4 +79,9 @@ function compress() {
   sub_dir="" # clean up for next recursion.
 }
 
+<<<<<<< HEAD
+=======
+init
+
+>>>>>>> v2.0
 compress $JS_SRC $JS_DEST
