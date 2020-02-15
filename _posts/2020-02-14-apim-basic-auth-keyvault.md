@@ -1,8 +1,8 @@
 ---
 title: Basic authentication in API Management using Key Vault
-date: 2020-02-14 15:00:00 +0000
+date: 2020-02-15 15:00:00 +0000
 categories: [API Management]
-tags: [Security]
+tags: [APIM,Powershell,Authentication]
 ---
 Policies are a powerful capability of the system that allows the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API
 Azure API Management uses subscriptions for authentication and authorization to the published APIs. If we need to perform some other type of authentications, there is support for OAuth 2.0, Certificates, and Basic authentication.
@@ -33,7 +33,7 @@ Login-AzAccount
 Set-AzContext -Subscription $subscriptionId
 $resourceGroup = Get-AzResourceGroup -Name $resourceGroupName
 ```
-3. If managed identity is not enabled for the API Management, enable it
+3. Enable managed identity for API Management, if not enabled
 ```powershell
 $apiManagement = Get-AzApiManagement -ResourceGroupName $resourceGroupName `
 -Name $apiManagementName
@@ -58,7 +58,7 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName $resourceGroupName `
 -VaultName $keyVault.VaultName -ObjectId $apiManagement.Identity.PrincipalId `
 -PermissionsToSecrets get
 ```
-6. Add the demo user and password to the Key Vault
+6. Add the demo user and password into the Key Vault
 ```powershell
 Set-AzKeyVaultSecret -Name $demoUserName -VaultName $keyVault.VaultName `
 -SecretValue $(ConvertTo-SecureString -String $demoUserPassword `
@@ -69,7 +69,7 @@ Set-AzKeyVaultSecret -Name $demoUserName -VaultName $keyVault.VaultName `
 New-AzApiManagementProperty -Context $(New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apiManagementName) `
  -Name KeyVaultURL -Value $keyVault.VaultUri
 ```
-8.In the inbound part of you policy definition, add the following code:
+8. In the inbound part of your policy definition, add the following code:
 ```xml
          <!-- If the Authorization header does not exists in the header, return 401 -->
         <choose>
@@ -107,7 +107,7 @@ New-AzApiManagementProperty -Context $(New-AzApiManagementContext -ResourceGroup
         <!--Delete the Authorization header, because it can cause problems at the backend-->
         <set-header name="Authorization" exists-action="delete" />
 ```
-8. Basic authorization is just a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org/]https://www.base64encode.org/ to generate your own Base64 string).
+8. Basic authorization is just a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org/]https://www.base64encode.org/ to generate your Base64 string).
 When calling the API, add the following header in the request:
 ```
 Key: Authorization

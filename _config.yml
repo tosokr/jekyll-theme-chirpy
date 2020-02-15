@@ -13,7 +13,7 @@ title: Aleksandar Stefanov                          # the main title
 tagline: My Azure repository  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Azure scripts solutions architecture Aleksandar Stefanov
+  Azure scripts solutions architecture repository Aleksandar Stefanov
 
 # Replace with your domain, e.g. 'https://username.github.io'
 url: 'https://tosokr.github.io'
@@ -51,7 +51,7 @@ timezone: Europe/Amsterdam
 
 google_analytics:
   # Fill with your Google Analytics ID
-  id: ''
+  id: 'UA-158589035-1'
   # The Google Analytics pageviews switch.
   # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
   pv: false
@@ -77,10 +77,10 @@ first_run: 2020
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode: dual
+theme_mode: dark
 
 # boolean type, global switch for ToC in posts.
-toc: false
+toc: true
 
 paginate: 10
 
@@ -110,7 +110,7 @@ defaults:
     values:
       layout: post
       comments: true    # Enable comments in posts.
-      toc: false         # Display TOC column in posts.
+      toc: true         # Display TOC column in posts.
       location: Post
       breadcrumb:
         -

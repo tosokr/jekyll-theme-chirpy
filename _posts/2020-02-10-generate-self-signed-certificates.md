@@ -1,8 +1,8 @@
 ---
 title: Generate self signed certificates
-date: 2020-02-10 21:00:00 +0000
+date: 2020-02-14 21:00:00 +0000
 categories: [Certificates]
-tags: [Scripts]
+tags: [Bash,Certificates]
 ---
 If, during cloud testing, we need to use custom domain names, we will probably need to provide also certificates. In this post, I’m explaining how to generate a wildcard certificate for the custom domain with openssl, using a custom Certificate Authority. You can find the script in my Github repository [https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh](https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh)
 

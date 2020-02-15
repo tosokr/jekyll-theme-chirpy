@@ -8,8 +8,18 @@ title: About
 # MIT License
 ---
 
-Aleksandar is a technology expert with more than 15 years’ experience in the IT industry. During that time,he gained hands-on experience in architecting and deploying solutions for different size of organisations, across many industries and sectors. 
+My name is Aleksandar Stefanov. Currently, I work as a Senior Consultant/Cloud Architect at Devoteam Netherlands. At my current and previous employer, I gain experience working with a broad profile of clients, improving their overall efficiency by leveraging Azure service offerings. 
 
-With his strong technical skills as well as excellent interpersonal skills, he can develop and coordinate cloud architecture between IT and business operations, translate the business requirements into technical solutions and help clients in their successful cloud journey.  In a team environment, he is both a natural team leader and a productive team member. 
+I hold B.Sc in Computer Science, Azure Solutions Architect Expert certification from Microsoft, and Professional Cloud Architect certification from Google.
 
-He holds B.Sc in Computer Science, Azure Solutions Architect Expert certification from Microsoft and Professional Cloud Architect certification from Google.
+In my free time, I enjoy running but only when the weather is nice 😊
+
+To find out more details on my work experience, please visit my [Linkedin](https://www.linkedin.com/in/aleksandarstefanov/) profile.
+
+Opinions on this site are my own.
+
+And yes, I’m a big fan of the Bing Bang Theory
+
+![Desktop View]({{ "/assets/img/profile/bazinga.png" | relative_url }})
+
+
