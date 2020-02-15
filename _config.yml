@@ -33,11 +33,11 @@ social:
   email: tosokr@gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
+    - https://www.linkedin.com/in/aleksandarstefanov
     - https://twitter.com/tosokr     # change to your twitter homepage
     - https://github.com/tosokr      # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/aleksandarstefanov
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 
@@ -68,7 +68,7 @@ disqus:
 first_run: 2020
 
 # boolean type, global switch for ToC in posts.
-toc: true
+toc: false
 
 paginate: 10
 
@@ -98,7 +98,7 @@ defaults:
     values:
       layout: post
       comments: true    # Enable comments in posts.
-      toc: true         # Display TOC column in posts.
+      toc: false         # Display TOC column in posts.
       location: Post
       breadcrumb:
         -

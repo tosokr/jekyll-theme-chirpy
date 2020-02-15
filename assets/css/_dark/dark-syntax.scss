@@ -6,7 +6,7 @@
 * MIT Licensed
 */
 
-@media (prefers-color-scheme: dark),(prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+@media (prefers-color-scheme: dark) {
   html {
     /* syntax highlight colors from https://raw.githubusercontent.com/jwarby/pygments-css/master/monokai.css */
     --highlight-pre-bg: #272822;
