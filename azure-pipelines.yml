@@ -19,5 +19,10 @@ steps:
     volumes: |
       $(build.sourcesDirectory):/srv/jekyll
       $(build.binariesDirectory):/srv/jekyll/_site
-    containerCommand: 'jekyll build'
+    containerCommand: '/srv/jekyll/tools/azuredevopsbuild.sh'
     detached: false
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(build.binariesDirectory)'
+    artifactName: site
