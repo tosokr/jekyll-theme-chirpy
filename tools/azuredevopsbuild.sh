@@ -30,16 +30,31 @@ help() {
 }
 
 
-init() {
-#install python
-apk add --update python python-dev py-pip build-base 
-pip install virtualenv 
+pythoninstall()
+{
+    echo "**** install Python ****" && \
+    apk add --no-cache python3 && \
+    if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi && \
+    \
+    echo "**** install pip ****" && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --no-cache --upgrade pip setuptools wheel && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
+    pip install ruamel.yaml
+}
 
-  cd $WORK_DIR
+fixcontainererrors(){
     mkdir .jekyll-cache
     touch Gemfile.lock
     chmod a+w Gemfile.lock
     bundle config disable_platform_warnings true
+}
+init() {
+    pythoninstall
+    cd $WORK_DIR
+    fixcontainererrors
+
   if [[ -d $CONTAINER ]]; then
     rm -rf $CONTAINER
   fi
@@ -85,6 +100,11 @@ check_unset() {
   fi
 }
 
+test(){
+    #Execute tests
+    cd ${WORK_DIR}
+    tools/test.sh
+}
 
 main() {
   while [[ $# -gt 0 ]]
@@ -122,9 +142,7 @@ main() {
 
   init
   build
+  test
 }
 
 main "$@"
-
-#Execute tests
-tools/test.sh
