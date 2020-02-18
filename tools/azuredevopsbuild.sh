@@ -142,7 +142,7 @@ main() {
 
   init
   build
-  test
+  #test
 }
 
 main "$@"
