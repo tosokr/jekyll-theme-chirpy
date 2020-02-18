@@ -72,6 +72,7 @@ init() {
 
 build() {
   cd $CONTAINER
+  mkdir .jekyll-cache
   echo "$ cd $(pwd)"
   python _scripts/py/init_all.py
 
