@@ -31,7 +31,8 @@ help() {
 
 init() {
   cd $WORK_DIR
-
+  touch Gemfile.lock
+  chmod a+w Gemfile.lock
   if [[ -d $CONTAINER ]]; then
     rm -rf $CONTAINER
   fi
@@ -49,8 +50,6 @@ init() {
 
 build() {
   cd $CONTAINER
-  touch Gemfile.lock
-  chmod a+w Gemfile.lock
   echo "$ cd $(pwd)"
   python _scripts/py/init_all.py
 
