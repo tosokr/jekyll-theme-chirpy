@@ -49,7 +49,8 @@ init() {
 
 build() {
   cd $CONTAINER
-
+  touch Gemfile.lock
+  chmod a+w Gemfile.lock
   echo "$ cd $(pwd)"
   python _scripts/py/init_all.py
 
