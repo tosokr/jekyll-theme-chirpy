@@ -31,7 +31,10 @@ help() {
 
 
 init() {
-  apt-get -y install python3.7
+#install python
+apk add --update python python-dev py-pip build-base 
+pip install virtualenv 
+
   cd $WORK_DIR
     mkdir .jekyll-cache
     touch Gemfile.lock
