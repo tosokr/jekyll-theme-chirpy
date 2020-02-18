@@ -72,8 +72,9 @@ init() {
 
 build() {
   cd $CONTAINER
-  mkdir .jekyll-cache
   echo "$ cd $(pwd)"
+  mkdir $CONTAINER/.jekyll-cache
+  chmod 777 $CONTAINER/.jekyll-cache
   python _scripts/py/init_all.py
 
   CMD+=" -s ${CONTAINER} -d ${DEST} --trace"
