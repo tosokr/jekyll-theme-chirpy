@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /srv/jekyll
-touch Gemfile.lock
+touch Gemfile.lock]
 chmod a+w Gemfile.lock
-JEKYLL_ENV=production bundle exec jekyll b
+bundle config disable_platform_warnings true
+jekyll build 
