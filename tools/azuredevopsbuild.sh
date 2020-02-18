@@ -31,7 +31,7 @@ help() {
 
 
 init() {
-  sudo apt-get -y install python3.7
+  apt-get -y install python3.7
   cd $WORK_DIR
     mkdir .jekyll-cache
     touch Gemfile.lock
