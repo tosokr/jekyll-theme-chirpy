@@ -75,7 +75,7 @@ build() {
   echo "$ cd $(pwd)"
   python _scripts/py/init_all.py
 
-  CMD+=" -s ${CONTAINER} -d ${DEST}"
+  CMD+=" -s ${CONTAINER} -d ${DEST} --trace"
   echo "\$ $CMD"
   eval $CMD
   echo -e "\nBuild success, the site files have been placed in '${DEST}'."
