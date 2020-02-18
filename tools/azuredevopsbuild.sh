@@ -2,4 +2,4 @@
 cd /srv/jekyll
 touch Gemfile.lock
 chmod a+w Gemfile.lock
-jekyll build
+JEKYLL_ENV=production bundle exec jekyll b
