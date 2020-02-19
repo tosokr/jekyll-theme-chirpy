@@ -18,8 +18,5 @@ To find out more details on my work experience, please visit my [Linkedin](https
 
 Opinions on this site are my own.
 
-And yes, I’m a big fan of the Bing Bang Theory
-
-![Desktop View]({{ "/assets/img/profile/bazinga.png" | relative_url }})
 
 

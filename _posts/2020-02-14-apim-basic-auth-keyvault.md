@@ -107,11 +107,11 @@ New-AzApiManagementProperty -Context $(New-AzApiManagementContext -ResourceGroup
         <!--Delete the Authorization header, because it can cause problems at the backend-->
         <set-header name="Authorization" exists-action="delete" />
 ```
-8. Basic authorization is just a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org/]https://www.base64encode.org/ to generate your Base64 string).
+8. Basic authorization is just a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org](https://www.base64encode.org) to generate your Base64 string).
 When calling the API, add the following header in the request:
 ```
 Key: Authorization
 Value: Basic ZGVtbzpwQHNzd29yZDE=
 ```
 
-BAZINGA!!! 
+9. Grab a beer. You finished. 
