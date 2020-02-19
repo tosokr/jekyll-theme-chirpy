@@ -112,7 +112,8 @@ bundle exec htmlproofer $DEST \
   --disable-external \
   --check-html \
   --empty_alt_ignore \
-  --url_ignore $URL_IGNORE
+  --allow_hash_href \
+  --url-ignore "/#.*/",$URL_IGNORE
 }
 
 main() {
