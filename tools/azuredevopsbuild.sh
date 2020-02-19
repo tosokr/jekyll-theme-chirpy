@@ -71,13 +71,13 @@ init() {
 
 
 build() {
-  cd $CONTAINER
+  cd $WORK_DIR
   echo "$ cd $(pwd)"
-  mkdir $CONTAINER/.jekyll-cache
-  chmod 777 $CONTAINER/.jekyll-cache
+  #mkdir $CONTAINER/.jekyll-cache
+  #chmod 777 $CONTAINER/.jekyll-cache
   python _scripts/py/init_all.py
 
-  CMD+=" -s ${CONTAINER} -d ${DEST} --trace"
+  CMD+=" -d ${DEST} --trace"
   echo "\$ $CMD"
   eval $CMD
   echo -e "\nBuild success, the site files have been placed in '${DEST}'."
