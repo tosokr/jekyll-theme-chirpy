@@ -105,7 +105,14 @@ check_unset() {
 test(){
     #Execute tests
     cd ${WORK_DIR}
-    tools/test.sh
+    DEST=_site
+    URL_IGNORE=cdn.jsdelivr.net
+
+bundle exec htmlproofer $DEST \
+  --disable-external \
+  --check-html \
+  --empty_alt_ignore \
+  --url_ignore $URL_IGNORE
 }
 
 main() {
