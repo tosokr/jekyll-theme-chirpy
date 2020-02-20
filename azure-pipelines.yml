@@ -8,7 +8,6 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
 steps:
 - task: Docker@0
   displayName: 'Run Jekyll'
@@ -22,7 +21,6 @@ steps:
     envVars: 'JEKYLL_ENV=production'
     containerCommand: '/srv/jekyll/tools/azuredevopsbuild.sh -d /srv/jekyll/_site'
     detached: false
-
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(build.binariesDirectory)'
