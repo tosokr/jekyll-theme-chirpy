@@ -1,6 +1,7 @@
 ---
 title: Basic authentication in API Management using Key Vault
 date: 2020-02-15 15:00:00 +0000
+description: Azure API Management policy client basic authentication howto
 categories: [API Management]
 tags: [APIM,Powershell,Authentication]
 ---

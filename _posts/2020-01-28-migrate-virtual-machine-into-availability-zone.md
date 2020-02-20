@@ -1,6 +1,7 @@
 ---
 title: Migrate virtual machine into availability zone
 date: 2020-02-13 20:15:00 +0000
+description: How to migrate an AzureVM into availability zone with powershell
 categories: [Virtual Machines]
 tags: [VMs,PowerShell,Availability Zones]
 ---
