@@ -5,7 +5,7 @@ description: How to generate self signed certificates including Root CA with ope
 categories: [Certificates]
 tags: [Bash,Certificates]
 ---
-If, during cloud testing, we need to use custom domain names, we will probably need to provide also certificates. In this post, I’m explaining how to generate a wildcard certificate for the custom domain with openssl, using a custom Certificate Authority. You can find the script in my Github repository [https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh](https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh)
+In this post, I’m explaining how to generate a wildcard certificate for the custom domain with openssl, using a custom Certificate Authority. You can find the script in my Github repository [https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh](https://github.com/tosokr/Azure/blob/master/certificates/generateCertificates.sh)
 
 1. Set the domain name
 ```shell

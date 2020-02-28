@@ -1,13 +1,31 @@
 ---
 title: Basic authentication in API Management using Key Vault
-date: 2020-02-15 15:00:00 +0000
+date: 2020-02-27 19:00:00 +0000
 description: Azure API Management policy client basic authentication howto
 categories: [API Management]
 tags: [APIM,Powershell,Authentication]
 ---
-Policies are a powerful capability of the system that allows the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API
-Azure API Management uses subscriptions for authentication and authorization to the published APIs. If we need to perform some other type of authentications, there is support for OAuth 2.0, Certificates, and Basic authentication.
-The problem with the Basic authentication is the storage of the authentication details for the users (usernames and passwords). We can use named values feature of the API Management to store a combination of username and password and reference those from the policy:
+Policies are a powerful capability of the Azure API Management (APIM) that allows the publisher to change the behavior of the API through configuration. APIM policy is a collection of statements executed sequentially on the request or response of an API. We can define our policy statement in four configuration sections: inbound, backend, outbound, and on-error:
+```xml
+<policies>
+  <inbound>
+    <!-- statements to be applied to the request go here -->
+  </inbound>
+  <backend>
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
+  </backend>
+  <outbound>
+    <!-- statements to be applied to the response go here -->
+  </outbound>
+  <on-error>
+    <!-- statements to be applied if there is an error condition go here -->
+  </on-error>
+</policies>
+```
+
+APIM uses subscriptions for authentication and authorization to the published APIs. If we need to perform some other type of authentications, there is support for OAuth 2.0, Certificates, and Basic authentication. Although we can think of the Basic authentication as a legacy, there are still companies who are using this authentication mechanism, mostly because of its simplicity and legacy software base. 
+The real challenge with the Basic authentication in APIM is the storage of the authentication details for the users (usernames and passwords). There is an option to use named values feature of the APIM to store a combination of username and password and reference those from the policy:
 ```xml
 <choose>
 	<when condition="@(context.Request.Headers.GetValueOrDefault("Authorization").AsBasic().UserId!="{{UserId}}" || context.Request.Headers.GetValueOrDefault("Authorization").AsBasic().Password!="{{Password}}")">
@@ -17,9 +35,9 @@ The problem with the Basic authentication is the storage of the authentication d
 	</when>
 </choose>
 ```
-The problem with this approach is that named pairs are verified during the compilation of the policy, meaning that we can't dynamically generate the name of the named pair. For this reason, the best approach is to store the user details in a Key Vault secret, where the name of the secret to represent the username and the secret value to represent the password for that user. 
+The problem with this approach is that named pairs are verified during the compilation of the policy, meaning that there is no possibility to dynamically generate the name of the named pair (in short words, we can’t have put a variable in {{  }}). The solution is to store the user details in a Key Vault secret, where the name of the secret represents the username, and the secret value represents the password for that user. 
 
-1. Lets first set the variables we are going to use in the powershel cmdlets
+1. Set the variables for the powershel cmdlets
 ```powershell
 $subscriptionId="" #subscription to use for the deployment
 $resourceGroupName = "" #name of the resource group
@@ -108,11 +126,11 @@ New-AzApiManagementProperty -Context $(New-AzApiManagementContext -ResourceGroup
         <!--Delete the Authorization header, because it can cause problems at the backend-->
         <set-header name="Authorization" exists-action="delete" />
 ```
-8. Basic authorization is just a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org](https://www.base64encode.org) to generate your Base64 string).
+8. Basic authentication is a Base64 representation of the combination username:password (if you changed the username and password combination from above, use [https://www.base64encode.org](https://www.base64encode.org) to generate your Base64 string).
 When calling the API, add the following header in the request:
 ```
 Key: Authorization
 Value: Basic ZGVtbzpwQHNzd29yZDE=
 ```
 
-9. Grab a beer. You finished. 
+Grab a beer. You finished! 

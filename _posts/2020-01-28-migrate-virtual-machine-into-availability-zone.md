@@ -10,7 +10,10 @@ Availability Zones is a high-availability offering that protects you from datace
 
 When you create a VM, you have the following options for availability:
 ![Desktop View]({{ "/assets/img/posts/vm/VMAvailabilityOptions.png" | relative_url }})
-Note that by default No infrastructure redundancy required is selected. If you create the VM with this option after that is not possible to move it to an Availability Set or an Availability Zone. When may you need this? Imagine, for example, you install SQL Server inside a VM, configure everything and after that, you choose to leverage some of the high availability options for SQL server, such as database mirroring or AlwaysOn availability groups. In such a scenario, it is a best practice to store those VMs into different Availability Zone (SLA of 99.99%) or in the same Availability Set (SLA of 99.95%).
+Note that by default *No infrastructure redundancy required* is selected. If you create the VM with this option after that is not possible to move it to an Availability Set or an Availability Zone. 
+
+When may you need this? 
+Imagine, for example, you install SQL Server inside a VM, configure everything, and after that, you choose to leverage some of the high availability options for SQL server, such as database mirroring or AlwaysOn availability groups. In such a scenario, it is a best practice to store those VMs into different Availability Zone (SLA of 99.99%) or in the same Availability Set (SLA of 99.95%).
 
 The script workflow:
 1.	Stop the VM
@@ -20,7 +23,7 @@ The script workflow:
 5.	Create a new VM 
 6.	(If you need it) Create an SQL VM object (this install the SQL IaaS agent into the VM)
 
-After you verify that everything is working, delete the old disks and the snapshots. Otherwise, you will pay to Microsoft for the provisioned space (if you are using SSD disks, this can be a significant sum).
+After you verify that everything is working, delete the old disks and the snapshots. Otherwise, you will end up paying to Microsoft for the provisioned space (if you are using SSD disks, this can be a significant sum of money).
 
 ```powershell
 {% remote_markdown https://raw.githubusercontent.com/tosokr/Azure/master/VirtualMachines/changeAvailabilityZoneOfVM.ps1 %}
