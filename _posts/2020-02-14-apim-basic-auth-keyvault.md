@@ -3,7 +3,7 @@ title: Basic authentication in API Management using Key Vault
 date: 2020-02-27 19:00:00 +0000
 description: Azure API Management policy client basic authentication howto
 categories: [API Management]
-tags: [APIM,Powershell,Authentication]
+tags: [APIMPolicy,Powershell,Authentication]
 ---
 Policies are a powerful capability of the Azure API Management (APIM) that allows the publisher to change the behavior of the API through configuration. APIM policy is a collection of statements executed sequentially on the request or response of an API. We can define our policy statement in four configuration sections: inbound, backend, outbound, and on-error:
 ```xml
