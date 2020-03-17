@@ -2,8 +2,8 @@
 title: How to use Key Vault references in App Configuration from .NET Framework Console application
 date: 2020-03-17 07:00:00 +0000
 description: How to access Key Vault reference stored in App Configuration from .NET Framework console application
-categories: [API Management]
-tags: [AppConfig,KeyVault]
+categories: [App Configuration,Key Vault]
+tags: [AppConfiguration,KeyVault]
 ---
 Azure App Configuration provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
