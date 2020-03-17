@@ -127,5 +127,6 @@ namespace ConsoleApp2
     }
 }
 ```
+Note: If you are hosting your application in Azure, then use the Private Link to access your instance of Key Vault. Otherwise, set a firewall rule in the Key Vault and enable just access from your IP ranges.
 
-Happy coding!
+Happy codin
