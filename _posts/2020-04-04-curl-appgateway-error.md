@@ -1,9 +1,9 @@
 ---
-title: SSL certificate error when accesing Application Gateway listener with curl
+title: SSL certificate error when accesing Application Gateway listener using curl
 date: 2020-04-04 19:00:00 +0000
 description: curl (60) SSL certificate problem unable to get local issuer certificate
 categories: [Application Gateway]
-tags: [Application Gateway]
+tags: [Application Gateway,Certificates]
 ---
 If you get the following error when you try to open a webpage using Linux command-line tool curl:
 >curl: (60) SSL certificate problem: unable to get local issuer certificate
