@@ -12,7 +12,8 @@ steps:
 - task: Docker@0
   displayName: 'Run Jekyll'
   inputs:
-    containerRegistryType: 'Container Registry'
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'DockerHub'
     action: 'Run an image'
     imageName: 'tosokr/jekyllbuild:latest'
     volumes: |
