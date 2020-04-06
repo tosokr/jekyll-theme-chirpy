@@ -15,7 +15,7 @@ steps:
     containerregistrytype: 'Container Registry'
     dockerRegistryConnection: 'DockerHub'
     action: 'Run an image'
-    imageName: 'tosokr/jekyllbuild:latest'
+    imageName: 'tosokr/jekyllbuild'
     volumes: |
       $(build.sourcesDirectory):/srv/jekyll
       $(build.binariesDirectory):/srv/jekyll/_site
