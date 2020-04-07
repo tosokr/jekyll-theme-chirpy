@@ -196,6 +196,7 @@ kubectl edit deployment ingress-azure
 and remove the livenessProbe and readinessProbe sections from the yaml file
 
 #### 8. Let's deploy a simple demo application into the AKS. 
+We will deploy the pods on the virtual-kubelet (see the nodeSelector and tolerations definitions below), create a horizontal pod autoscaler for the deployment with a maximum of 3 pods, service and ingress controller for exposing the pods to the Internet.
 ```shell
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
