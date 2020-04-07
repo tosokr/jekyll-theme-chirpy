@@ -93,7 +93,7 @@ az network application-gateway create \
   --vnet-name $vnetName \
   --subnet ag-subnet
 ```
-#### 6. Create [aad-pod-identity](https://github.com/Azure/aad-pod-identity) and identity for Azure Resource Manager operations 
+#### 6. Create [aad-pod-identity](https://github.com/Azure/aad-pod-identity) and identity for Azure Resource Manager operations. AAD Pod Identity enables Kubernetes applications to access cloud resources securely with Azure Active Directory.
 ```shell
 # get the AKS credentials
 az aks get-credentials --resource-group $resourceGroupName \
@@ -167,6 +167,21 @@ armAzureIdentityClientId=$(az identity show --name armAzureIdentity \
 --resource-group $nodeResourceGroup --query clientId -o tsv)
 aksApiServerAddress=$(az aks show --resource-group rg-aks \
 --name tosokr --query fqdn -o tsv)
+helm install application-gateway-kubernetes-ingress/ingress-azure \
+     --name ingress-azure \
+     --namespace default \
+     --debug \
+     --set appgw.name=aksAppGateway \
+     --set appgw.resourceGroup=$nodeResourceGroup \
+     --set appgw.subscriptionId=$subscriptionId \
+     --set appgw.shared=false \
+     --set armAuth.type=aadPodIdentity \
+     --set armAuth.identityResourceID=$armAzureIdentityId \
+     --set armAuth.identityClientID=$armAzureIdentityClientId \
+     --set rbac.enabled=true \
+     --set verbosityLevel=3 \
+     --set kubernetes.watchNamespace=default \
+     --set aksClusterConfiguration.apiServerAddress=$aksApiServerAddress
 ```
 After pod is created, view its details using:
 ```shell
