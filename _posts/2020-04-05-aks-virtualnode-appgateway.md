@@ -1,5 +1,5 @@
 ---
-title: Quickly and efficiently scale containerized applications using Azure Kubernetres Service, Container Instances, and Application Gateway 
+title: Quickly and efficiently scale containerized applications using Azure Kubernetes Service, Container Instances, and Application Gateway 
 date: 2020-04-06 22:00:00 +0000
 description: How to deploy Azure Kubernetes Service with virtual nodes and Application Gateway ingress controller
 categories: [Azure Kubernetes Service, Azure Container Instances, Application Gateway]
