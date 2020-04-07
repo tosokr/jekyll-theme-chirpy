@@ -187,7 +187,7 @@ After pod is created, view its details using:
 ```shell
 kubectl describe pod -l app=ingress-azure
 ```
-If you see the followin messages, you need to manually edit the deployment (THIS IS A AGIC BUG)
+If you see the following messages, you need to manually edit the deployment (THIS IS AN AGIC BUG)
 >Liveness probe failed: Get http://10.240.0.44:8123/health/alive: dial tcp 10.240.0.44:8123: connect: connection refused
 Readiness probe failed: Get http://10.240.0.44:8123/health/ready: dial tcp 10.240.0.44:8123: connect: connection refused
 ```shell
