@@ -3,7 +3,7 @@ title: Migrate virtual machine into availability zone
 date: 2020-02-13 20:15:00 +0000
 description: How to migrate an AzureVM into availability zone with powershell
 categories: [Virtual Machines]
-tags: [VMs,PowerShell,Availability Zones]
+tags: [VMs,Powershell,Availability Zones]
 ---
 
 Availability Zones is a high-availability offering that protects you from datacenter failures. Think of them as separate datacenter inside one Azure location. For example, West Europe is one location (Amsterdam, Netherlands), but inside that location, there are several datacenters. In your subscription, you can see Availability Zones labeled as 1, 2, and 3. Those numbers are just logical representations of the physical datacenters, meaning that, for example, Availability Zone 1 in West Europe for my subscription can point to different physical datacenter compared to the Availability Zone 1 in West Europe for your subscription.
