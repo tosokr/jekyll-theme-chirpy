@@ -202,7 +202,7 @@ main() {
 
   init
   build
-  test
+  _test
 }
 
 main "$@"
