@@ -51,7 +51,7 @@ fixcontainererrors(){
     bundle config disable_platform_warnings true
 }
 init() {
-    pythoninstall
+    #pythoninstall
     cd $WORK_DIR
     fixcontainererrors
 
@@ -75,7 +75,10 @@ build() {
   echo "$ cd $(pwd)"
   #mkdir $CONTAINER/.jekyll-cache
   #chmod 777 $CONTAINER/.jekyll-cache
-  python _scripts/py/init_all.py
+  #python _scripts/py/init_all.py
+  
+  bash _scripts/sh/create_pages.sh
+  bash _scripts/sh/dump_lastmod.sh
 
   CMD+=" -d ${DEST} --trace"
   echo "\$ $CMD"

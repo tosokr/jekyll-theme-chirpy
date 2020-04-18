@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager templates - lesson learned  
+title: Azure Resource Manager templates - a lesson learned  
 date: 2020-04-13 11:00:00 +0000
 description: How to add Web App outbound IP addresses into SQL Server firewall using Azure Resource Manager template 
 categories: [ARM Templates]
