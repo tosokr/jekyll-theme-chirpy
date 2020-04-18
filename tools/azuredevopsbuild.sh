@@ -18,7 +18,7 @@ CONTAINER=${WORK_DIR}/.container
 DEST=${WORK_DIR}/_site
 
 
-help() {
+_help() {
   echo "Usage:"
   echo
   echo "   bash build.sh [options]"
@@ -28,6 +28,7 @@ help() {
   echo "   -h, --help               Print the help information"
   echo "   -d, --destination <DIR>  Destination directory (defaults to ./_site)"
 }
+
 
 
 pythoninstall()
@@ -44,16 +45,33 @@ pythoninstall()
     pip install ruamel.yaml
 }
 
-fixcontainererrors(){
+_fixcontainererrors(){
     mkdir .jekyll-cache
     touch Gemfile.lock
     chmod a+w Gemfile.lock
     bundle config disable_platform_warnings true
 }
+_init() {
+  cd $WORK_DIR
+  _fixcontainererrors
+  if [[ -d $CONTAINER ]]; then
+    rm -rf $CONTAINER
+  fi
+
+  if [[ -d _site ]]; then
+    jekyll clean
+  fi
+
+  local _temp=$(mktemp -d)
+  cp -r * $_temp
+  cp -r .git $_temp
+  mv $_temp $CONTAINER
+}
+
 init() {
     #pythoninstall
     cd $WORK_DIR
-    fixcontainererrors
+    _fixcontainererrors
 
   if [[ -d $CONTAINER ]]; then
     rm -rf $CONTAINER
@@ -69,6 +87,28 @@ init() {
   mv $temp $CONTAINER
 }
 
+_build() {
+  cd $CONTAINER
+  echo "$ cd $(pwd)"
+
+  bash _scripts/sh/create_pages.sh
+  bash _scripts/sh/dump_lastmod.sh
+
+  CMD+=" -d ${DEST}"
+  echo "\$ $CMD"
+  eval $CMD
+  echo -e "\nBuild success, the site files have been placed in '${DEST}'."
+
+  if [[ -d ${DEST}/.git ]]; then
+    if [[ ! -z $(git -C $DEST status -s) ]]; then
+      git -C $DEST add .
+      git -C $DEST commit -m "[Automation] Update site files." -q
+      echo -e "\nPlease push the changes of $DEST to remote master branch.\n"
+    fi
+  fi
+
+  cd .. && rm -rf $CONTAINER
+}
 
 build() {
   cd $WORK_DIR
@@ -96,6 +136,13 @@ build() {
   cd .. && rm -rf $CONTAINER
 }
 
+_check_unset() {
+  if [[ -z ${1:+unset} ]]
+  then
+    _help
+    exit 1
+  fi
+}
 
 check_unset() {
   if [[ -z ${1:+unset} ]]
@@ -105,7 +152,7 @@ check_unset() {
   fi
 }
 
-test(){
+_test(){
     #Execute tests
     cd ${WORK_DIR}
     DEST=_site
@@ -137,7 +184,7 @@ main() {
         shift
         ;;
       -d|--destination)
-        check_unset $2
+        _check_unset $2
         DEST=$(realpath $2)
         shift;
         shift;
