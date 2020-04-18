@@ -10,7 +10,7 @@ $(function() {
 
   var btnSbTrigger = $('#sidebar-trigger');
   var btnSearchTrigger = $('#search-trigger');
-  var btnCancel = $('#search-wrapper + a');
+  var btnCancel = $('#search-cancel');
   var btnClear = $('#search-cleaner');
 
   var main = $('#main');
@@ -29,10 +29,8 @@ $(function() {
     return {
       block: function() {
         offset = $(window).scrollTop();
-        $('body').addClass('no-scroll');
       },
       release: function() {
-        $('body').removeClass('no-scroll');
         $('html,body').scrollTop(offset);
       },
       getOffset: function() {
