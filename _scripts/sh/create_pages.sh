@@ -66,7 +66,9 @@ create_category() {
 create_tag() {
   local _name=$1
   local _filepath="tags/$( echo $_name | sed "s/ /-/g;s/'//g" | awk '{print tolower($0)}' ).html"
-
+  if [[ $_name == *"Certificates"* ]]; then
+    local _filepath="tags/certificates.html"
+  fi
   if [[ ! -f $_filepath ]]; then
 
     echo "---" > $_filepath
