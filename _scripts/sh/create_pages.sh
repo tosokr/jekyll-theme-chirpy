@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 #
 # Create HTML pages for Categories and Tags in posts.
 #
@@ -47,8 +47,10 @@ init() {
 
 create_category() {
   local _name=$1
-  local _filepath="categories/$(echo $_name | sed 's/ /-/g' | awk '{print tolower($0)}').html"
-
+  local _filepath="categories/$( echo $_name | sed "s/^M//g" | sed "s/ /-/g" | awk '{print tolower($0)}' ).html"
+  if [[ $_name == *"Certificates"* ]]; then
+    local _filepath="categories/certificates.html"
+  fi
   if [[ ! -f $_filepath ]]; then
     echo "---" > $_filepath
     echo "layout: category" >> $_filepath
